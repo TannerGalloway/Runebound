@@ -5,7 +5,7 @@ public class StartGame {
     public static void startGame() {
         Scanner scanner = new Scanner(System.in);
 //        generate room
-//        initialize player
+        Player player = new Player();
         System.out.println("You find yourself in a mysterious place: ");
         System.out.println("Look Around");
         System.out.println("Check Inventory");
