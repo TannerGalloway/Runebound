@@ -5,6 +5,7 @@ public class Player {
     int attack = 5;
     int score = 0;
     ArrayList<ArrayList<Item>> inventory = new ArrayList<>();
+    ArrayList<ArrayList<Attack>> attacks = new ArrayList<>();
 
     public int getHealth() {
         return health;
