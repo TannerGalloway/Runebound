@@ -6,19 +6,19 @@ public class RandomGen {
         return (int)(Math.random() * limit);
     }
 
-    public static Room genRoom(String currentRoom) {
+    public static Room genRoom(String currentLocation) {
         // Gen data for the Room Object
-        String roomVariation = genVariation(currentRoom);
-        String description = genDescription(currentRoom, roomVariation);
-        Item[] roomItems = genItems(currentRoom, roomVariation);
-        Enemy[] roomEnemies = genEnemies(currentRoom, roomVariation);
+        String roomVariation = genVariation(currentLocation);
+        String description = genDescription(currentLocation, roomVariation);
+        Item[] roomItems = genItems(currentLocation, roomVariation);
+        Enemy[] roomEnemies = genEnemies(currentLocation, roomVariation);
 
         // Return new Room Object
         return new Room(description, roomVariation, roomItems, roomEnemies);
     }
 
-    public static String genVariation(String currentRoom) {
-        switch (currentRoom) {
+    public static String genVariation(String currentLocation) {
+        switch (currentLocation) {
             // Based on the current room, generate a variation of that room
             case "Forsaken Outpost":
                 if(genRanNum(2) == 0) {
@@ -65,8 +65,8 @@ public class RandomGen {
         }
     }
 
-    public static String genDescription(String currentRoom, String currentVariation) {
-        switch (currentRoom) {
+    public static String genDescription(String currentLocation, String currentVariation) {
+        switch (currentLocation) {
             case "Forsaken Outpost":
                 if(Objects.equals(currentVariation, "Frozen Barracks")) {
                     // Description for Frozen Barracks variation
@@ -123,8 +123,8 @@ public class RandomGen {
         }
     }
 
-    public static Item[] genItems(String currentRoom, String currentVariation) {
-        switch (currentRoom) {
+    public static Item[] genItems(String currentLocation, String currentVariation) {
+        switch (currentLocation) {
             // Items for the Forsaken Outpost
             case "Forsaken Outpost":
                 if(Objects.equals(currentVariation, "Frozen Barracks")) {
@@ -219,8 +219,8 @@ public class RandomGen {
 
     }
 
-    public static Enemy[] genEnemies(String currentRoom, String currentVariation) {
-        switch (currentRoom) {
+    public static Enemy[] genEnemies(String currentLocation, String currentVariation) {
+        switch (currentLocation) {
             case "Forsaken Outpost":
                 // Frozen Barracks Enemies and Attacks
                 if (Objects.equals(currentVariation, "Frozen Barracks")) {

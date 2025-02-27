@@ -4,7 +4,7 @@ public class Player {
     int health = 100;
     int attack = 5;
     int score = 0;
-    ArrayList<ArrayList<Item>> inventory = new ArrayList<>();
+    ArrayList<Item> inventory = new ArrayList<>();
     ArrayList<ArrayList<Attack>> attacks = new ArrayList<>();
 
     public int getHealth() {
@@ -31,15 +31,15 @@ public class Player {
         this.score = score;
     }
 
-    public ArrayList<ArrayList<Item>> getInventory() {
+    public ArrayList<Item> getInventory() {
         return inventory;
     }
 
-    public void setInventory(ArrayList<Item> item) {
+    public void addToInventory(Item item) {
         this.inventory.add(item);
     }
 
-    public void removeItemFromInventory(ArrayList<Item> item) {
+    public void removeFromInventory(Item item) {
         this.inventory.remove(item);
     }
 }
