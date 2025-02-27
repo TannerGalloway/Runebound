@@ -8,4 +8,16 @@ public class Attack {
         this.damage = damage;
         this.type = type;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public String getType() {
+        return type;
+    }
 }

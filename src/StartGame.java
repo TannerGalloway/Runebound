@@ -1,11 +1,20 @@
-import java.util.Objects;
+ import java.util.ArrayList;
+ import java.util.Objects;
 import java.util.Scanner;
 
 public class StartGame {
     public static void startGame() {
         Scanner scanner = new Scanner(System.in);
-//        generate room
-        Player player = new Player();
+//      Names for the rooms
+        String[] rooms = {"Forsaken Outpost", "Whispering Catacombs", "Blighted Forest", "Crystalline Cavern", "Throne of the Abyss"};
+        ArrayList<Room> roomList = new ArrayList<>();
+
+        // Generate new rooms
+        for (int i = 0; i < rooms.length; i++) {
+        // Add newly gen rooms to the roomList array
+            roomList.add(RandomGen.genRoom(rooms[i]));
+
+        }
         System.out.println("You find yourself in a mysterious place: ");
         System.out.println("Look Around");
         System.out.println("Check Inventory");

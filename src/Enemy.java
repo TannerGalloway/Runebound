@@ -1,14 +1,18 @@
-import java.util.ArrayList;
-
 public class Enemy {
     String name;
     int health;
     int attackDamage;
-    ArrayList<ArrayList<Attack>> attacks = new ArrayList<>();
+    Attack[] attacks;
 
-    public Enemy(int health, int attack) {
+    public Enemy(String name, int health, int attackDamage, Attack[] attacks) {
+        this.name = name;
         this.health = health;
-        this.attackDamage = attack;
+        this.attackDamage = attackDamage;
+        this.attacks = attacks;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getHealth() {
@@ -27,11 +31,7 @@ public class Enemy {
         this.attackDamage = attack;
     }
 
-    public ArrayList<ArrayList<Attack>> getAttacks() {
+    public Attack[] getAttacks() {
         return attacks;
-    }
-
-    public void setAttack(ArrayList<Attack> attack) {
-        this.attacks.add(attack);
     }
 }
