@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Player {
     int health = 100;
-    int attack = 5;
+    int attack = 0;
     int score = 0;
     ArrayList<Item> inventory = new ArrayList<>();
     ArrayList<ArrayList<Attack>> attacks = new ArrayList<>();

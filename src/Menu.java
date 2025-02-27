@@ -76,6 +76,43 @@ public class Menu {
                     selection = "explore";
                     break;
 
+                case "attack":
+                    int enemiesDefeated = 0;
+                    Enemy[] enemiesList = Actions.look(roomList.get(currentRoomID));
+                    System.out.println();
+                    for (int i = 0; i < enemiesList.length; i++) {
+                        if(enemiesList[i].getHealth() <= 0) {
+                            enemiesDefeated++;
+                        }
+
+                        if (enemiesDefeated == enemiesList.length) {
+                            System.out.println("Congrats all enemies have been defeated!");
+                        }
+                        System.out.printf("%s. %s: Health: %s%n", i+1, enemiesList[i].getName(), enemiesList[i].getHealth());
+
+                    }
+                    System.out.println("Select an enemy to attack:");
+                    String enemySelection = scanner.next();
+
+                    System.out.println();
+                    if(Integer.parseInt(enemySelection) > enemiesList.length) {
+                        System.out.println("Enter a valid selection");
+                        break;
+                    }
+                    int enemyHealth = enemiesList[Integer.parseInt(enemySelection)-1].getHealth();
+                    if(enemyHealth > 0) {
+                        System.out.printf("Attacking %s%n", enemiesList[Integer.parseInt(enemySelection)-1].getName());
+                        System.out.printf("%s took %s damage", enemiesList[Integer.parseInt(enemySelection)-1].getName(), Actions.getAttack(player));
+                        System.out.println();
+                        enemiesList[Integer.parseInt(enemySelection) - 1].setHealth(Math.max(enemyHealth - Actions.getAttack(player), 0));
+                    }
+                    else {
+                        System.out.printf("%s is already dead", enemiesList[Integer.parseInt(enemySelection)-1].getName());
+                    }
+
+                    previousSelection = "look";
+                    break;
+
                 default:
                     System.out.printf("%nInvalid Choice. Try Again!%n");
                     selection = "explore";

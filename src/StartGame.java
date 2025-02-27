@@ -15,8 +15,11 @@ public class StartGame {
         }
 
         // Add Starter Item to Inventory
-        Item starterWeapon = new Item("Iron Shortsword", "Weapon", 3, 0);
+        Item starterWeapon = new Item("Iron Shortsword", "Weapon", 5, 0);
         Actions.addToInventory(player, starterWeapon);
+
+        //Update the player damage
+        Actions.setAttack(player, 5);
 
         // Call Menu with required data
         Menu.menu(rooms[currentRoomID], roomList, rooms, currentRoomID, player);
